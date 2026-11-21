@@ -1,0 +1,67 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  TURBO_TELEMETRY_DISABLED: "1"
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      # pnpm version comes from the root package.json "packageManager" field (pnpm@11.9.0).
+      - uses: pnpm/action-setup@v6
+
+      # Writes the user-level ~/.npmrc (scope registry + _authToken=${NODE_AUTH_TOKEN}) that pnpm reads.
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24 # current LTS; pnpm 11 needs Node >= 22.13
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: "@ngocdung12112000"
+
+      # Turborepo + Next.js build caches.
+      - uses: actions/cache@v5
+        with:
+          path: |
+            .turbo
+            apps/*/.next/cache
+          key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
+            turbo-${{ runner.os }}-
+
+      # @ngocdung12112000/api-client is published from the stackshop-backend repo. This repo's
+      # GITHUB_TOKEN can read it only if the package grants this repo access (Package settings >
+      # Manage Actions access). Otherwise set the PACKAGES_READ_TOKEN secret (PAT with read:packages).
+      - name: Install
+        run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_READ_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build

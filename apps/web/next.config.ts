@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  // @stackshop/ui ships TypeScript source. Turbopack transpiles workspace packages
+  // automatically; listing it keeps other bundlers consistent.
+  transpilePackages: ["@stackshop/ui"],
   turbopack: {
     rules: {
       "*.css": {

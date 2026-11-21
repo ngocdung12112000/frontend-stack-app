@@ -5,9 +5,15 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "turbo run test"
   },
   "devDependencies": {
+    "@stackshop/config": "workspace:*",
+    "prettier": "^3.0.0",
     "turbo": "^2.5.0"
   }
 }
