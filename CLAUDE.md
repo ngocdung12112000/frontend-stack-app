@@ -39,7 +39,7 @@ On this Windows machine PowerShell blocks `.ps1` shims; run pnpm from bash or cm
 
 **GitHub Packages auth.** `.npmrc` only maps the `@ngocdung12112000` scope to `https://npm.pkg.github.com`. pnpm ignores `${ENV}` tokens in a project `.npmrc`, so put the token in your user-level `~/.npmrc` (or `pnpm config set`): `//npm.pkg.github.com/:_authToken=<PAT with read:packages>`. In CI, `actions/setup-node` with `registry-url` + `NODE_AUTH_TOKEN` writes that file. Never commit a token.
 
-**API client.** `@ngocdung12112000/api-client` is pinned to the published `0.1.0` from GitHub Packages (needs the PAT above). Create the client with `createStackShopClient({ baseUrl })` and call flat paths, e.g. `client.GET("/api/v1/products", { params: { query: { limit } } })`. Lists are cursor-paged (`items`, `nextCursor`). Bump with the `bump-api-client` skill.
+**API client.** `@ngocdung12112000/api-client` is pinned to the published `0.1.1` from GitHub Packages (needs the PAT above). Create the client with `createStackShopClient({ baseUrl })` and call flat paths, e.g. `client.GET("/api/v1/products", { params: { query: { limit } } })`. Product lists are page-based (`items`, `page`, `pageSize`, `totalCount`). Bump with the `bump-api-client` skill.
 
 **Server API access.** `apps/web/src/lib/api.ts` (`server-only`) builds the client from `API_BASE_URL` (default `http://localhost:5000`; see `apps/web/.env.example`). Never `NEXT_PUBLIC_*`.
 

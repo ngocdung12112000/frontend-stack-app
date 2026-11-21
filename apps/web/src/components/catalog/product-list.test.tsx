@@ -24,7 +24,9 @@ describe("ProductList", () => {
               currency: "USD",
             },
           ],
-          nextCursor: null,
+          page: 1,
+          pageSize: 8,
+          totalCount: 1,
         }),
       ),
     );

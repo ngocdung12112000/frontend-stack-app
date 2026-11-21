@@ -21,8 +21,8 @@ importers:
   apps/web:
     dependencies:
       '@ngocdung12112000/api-client':
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: 0.1.1
+        version: 0.1.1
       '@stackshop/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -624,9 +624,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ngocdung12112000/api-client@0.1.0':
-    resolution: {integrity: sha512-Ss64nBX6h9uSBHm8/E2453VY1CGqWGU/vIB/EuFOqc35OMfU1iRrir8OOHu9johjj04Ax3vnsnSk/vdSXT5jCg==, tarball: https://npm.pkg.github.com/download/@ngocdung12112000/api-client/0.1.0/43391210bccd276837ee23bc4b99bb22299ce566}
-    engines: {node: '>=20'}
+  '@ngocdung12112000/api-client@0.1.1':
+    resolution: {integrity: sha512-WFRyVHn7aKF70kQPPA2ZMcVcmHc68DpCCMtW468krk7npzlDGzUknrrf+G03nb4opi+829GLsyDkP1IKXD33sQ==, tarball: https://npm.pkg.github.com/download/@ngocdung12112000/api-client/0.1.1/43685c72af4caaf2989fb4f275dfd1270b3cabd7}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3049,11 +3048,11 @@ packages:
     resolution: {integrity: sha512-5vvB5+W7ePv+p3uqxi+RcW1XAzLW0/hxt3/4X4Lc4qHudzOhmBiBwOY6DRob4WnanAEGvNcLjF+KNOufrUoEQw==}
     engines: {node: '>=12.20.0'}
 
-  openapi-fetch@0.13.8:
-    resolution: {integrity: sha512-yJ4QKRyNxE44baQ9mY5+r/kAzZ8yXMemtNAOFwOzRXJscdjSxxzWSNlyBAr+o5JjkUw9Lc3W7OIoca0cY3PYnQ==}
+  openapi-fetch@0.17.0:
+    resolution: {integrity: sha512-PsbZR1wAPcG91eEthKhN+Zn92FMHxv+/faECIwjXdxfTODGSGegYv0sc1Olz+HYPvKOuoXfp+0pA2XVt2cI0Ig==}
 
-  openapi-typescript-helpers@0.0.15:
-    resolution: {integrity: sha512-opyTPaunsklCBpTK8JGef6mfPhLSnyy5a0IN9vKtx3+4aExf+KxEqYwIy3hqkedXIB97u357uLMJsOnm3GVjsw==}
+  openapi-typescript-helpers@0.1.0:
+    resolution: {integrity: sha512-OKTGPthhivLw/fHz6c3OPtg72vi86qaMlqbJuVJ23qOvQ+53uw1n7HdmkJFibloF7QEjDrDkzJiOJuockM/ljw==}
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -4157,9 +4156,9 @@ snapshots:
   '@next/swc-win32-x64-msvc@16.4.6':
     optional: true
 
-  '@ngocdung12112000/api-client@0.1.0':
+  '@ngocdung12112000/api-client@0.1.1':
     dependencies:
-      openapi-fetch: 0.13.8
+      openapi-fetch: 0.17.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -6684,11 +6683,11 @@ snapshots:
 
   obug@3.0.0: {}
 
-  openapi-fetch@0.13.8:
+  openapi-fetch@0.17.0:
     dependencies:
-      openapi-typescript-helpers: 0.0.15
+      openapi-typescript-helpers: 0.1.0
 
-  openapi-typescript-helpers@0.0.15: {}
+  openapi-typescript-helpers@0.1.0: {}
 
   optionator@0.9.4:
     dependencies:
