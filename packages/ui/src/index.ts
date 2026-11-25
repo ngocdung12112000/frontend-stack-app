@@ -28,3 +28,25 @@ export {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from "./components/dropdown-menu";
+export { Input } from "./components/input";
+export { Label } from "./components/label";
+export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
+export { Alert, AlertTitle, AlertDescription } from "./components/alert";
+export {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "./components/card";
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+} from "./components/form";

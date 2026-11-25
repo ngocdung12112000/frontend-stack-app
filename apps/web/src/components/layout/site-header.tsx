@@ -4,6 +4,7 @@ import { Button } from "@stackshop/ui";
 import { mainNav, siteConfig } from "@/lib/site";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { MobileNav } from "./mobile-nav";
+import { UserMenu } from "./user-menu";
 
 export function SiteHeader() {
   return (
@@ -55,6 +56,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <ThemeToggle />
+          <UserMenu />
         </div>
       </div>
     </header>
